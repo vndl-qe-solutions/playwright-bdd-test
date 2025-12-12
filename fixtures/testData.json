@@ -1,0 +1,65 @@
+{
+  "users": [
+    {
+      "id": "user1",
+      "username": "testuser1",
+      "email": "testuser1@example.com",
+      "password": "TestPassword@123",
+      "firstName": "Test",
+      "lastName": "User",
+      "role": "user"
+    },
+    {
+      "id": "user2",
+      "username": "testuser2",
+      "email": "testuser2@example.com",
+      "password": "SecurePass@456",
+      "firstName": "Test",
+      "lastName": "User2",
+      "role": "user"
+    },
+    {
+      "id": "admin1",
+      "username": "admin",
+      "email": "admin@example.com",
+      "password": "AdminPass@789",
+      "firstName": "Admin",
+      "lastName": "User",
+      "role": "admin"
+    }
+  ],
+  "invalidUsers": [
+    {
+      "username": "nonexistent",
+      "password": "anypassword"
+    },
+    {
+      "username": "testuser",
+      "password": "wrongpassword"
+    }
+  ],
+  "testCases": {
+    "login": {
+      "validCredentials": {
+        "username": "testuser1",
+        "password": "TestPassword@123"
+      },
+      "invalidUsername": {
+        "username": "invaliduser",
+        "password": "TestPassword@123"
+      },
+      "invalidPassword": {
+        "username": "testuser1",
+        "password": "wrongpassword"
+      },
+      "emptyUsername": {
+        "username": "",
+        "password": "TestPassword@123"
+      },
+      "emptyPassword": {
+        "username": "testuser1",
+        "password": ""
+      }
+    }
+  }
+}

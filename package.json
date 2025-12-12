@@ -1,0 +1,50 @@
+{
+  "name": "playwright-bdd-test",
+  "version": "1.0.0",
+  "description": "Enterprise-grade Playwright + Cucumber BDD test automation framework",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js --require=hooks/world.js --require=hooks/hooks.js --require=step_definitions/steps.js --format=progress-bar --format=json:reports/cucumber-report.json --format=html:reports/cucumber-report.html",
+    "test:smoke": "cucumber-js --tags='@smoke' --require=hooks/world.js --require=hooks/hooks.js --require=step_definitions/steps.js --format=progress-bar --format=json:reports/cucumber-report.json --format=html:reports/cucumber-report.html",
+    "test:regression": "cucumber-js --tags='@regression' --require=hooks/world.js --require=hooks/hooks.js --require=step_definitions/steps.js --format=progress-bar --format=json:reports/cucumber-report.json --format=html:reports/cucumber-report.html",
+    "test:parallel": "cucumber-js --parallel=4 --require=hooks/world.js --require=hooks/hooks.js --require=step_definitions/steps.js --format=progress-bar --format=json:reports/cucumber-report.json --format=html:reports/cucumber-report.html",
+    "test:headed": "cross-env HEADLESS=false cucumber-js --require=hooks/world.js --require=hooks/hooks.js --require=step_definitions/steps.js --format=progress-bar --format=json:reports/cucumber-report.json --format=html:reports/cucumber-report.html",
+    "test:debug": "cross-env DEBUG=true cucumber-js --require=hooks/world.js --require=hooks/hooks.js --require=step_definitions/steps.js --format=progress-bar --format=json:reports/cucumber-report.json --format=html:reports/cucumber-report.html",
+    "test:chrome": "cross-env BROWSER=chromium cucumber-js --require=hooks/world.js --require=hooks/hooks.js --require=step_definitions/steps.js --format=progress-bar --format=json:reports/cucumber-report.json --format=html:reports/cucumber-report.html",
+    "test:firefox": "cross-env BROWSER=firefox cucumber-js --require=hooks/world.js --require=hooks/hooks.js --require=step_definitions/steps.js --format=progress-bar --format=json:reports/cucumber-report.json --format=html:reports/cucumber-report.html",
+    "test:webkit": "cross-env BROWSER=webkit cucumber-js --require=hooks/world.js --require=hooks/hooks.js --require=step_definitions/steps.js --format=progress-bar --format=json:reports/cucumber-report.json --format=html:reports/cucumber-report.html",
+    "test:all-browsers": "npm run test:chrome && npm run test:firefox && npm run test:webkit",
+    "test:report": "node scripts/generateReport.js",
+    "lint": "eslint . --ext .js",
+    "format": "prettier --write .",
+    "install:browsers": "playwright install"
+  },
+  "keywords": [
+    "playwright",
+    "cucumber",
+    "bdd",
+    "automation",
+    "testing"
+  ],
+  "author": "QE Solutions",
+  "license": "MIT",
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.0.1",
+    "@playwright/test": "^1.57",
+    "@faker-js/faker": "^8.3.1",
+    "dotenv": "^17.2.3",
+    "winston": "^3.11.0",
+    "axios": "^1.6.2",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.55.0",
+    "prettier": "^3.1.0",
+    "html-reporter": "^2.2.10",
+    "allure-commandline": "^2.25.0",
+    "allure-playwright": "^2.9.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
