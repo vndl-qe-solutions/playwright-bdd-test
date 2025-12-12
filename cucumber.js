@@ -7,6 +7,7 @@ dotenv.config();
 
 export default {
   default: {
+    paths: 'features/**/*.{feature,feature.md}',
     require: [
       'hooks/world.js',
       'hooks/hooks.js',

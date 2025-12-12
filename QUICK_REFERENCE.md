@@ -20,7 +20,19 @@ nano .env  # Update BASE_URL to your application
 npm test
 
 # Only smoke tests
+```bash
+# Only smoke tests
 npm run test:smoke
+
+# Only smoke tests with specific tag
+npx cucumber-js --tags "@smoke"
+
+# Multiple tags (AND condition)
+npx cucumber-js --tags "@smoke and @critical"
+
+# Multiple tags (OR condition)
+npx cucumber-js --tags "@smoke or @regression"
+```
 
 # In parallel (4 workers)
 npm run test:parallel

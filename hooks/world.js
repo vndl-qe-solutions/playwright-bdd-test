@@ -4,6 +4,7 @@ import logger from '../utils/logger.js';
 import { ApiClient } from '../utils/apiClient.js';
 import { TestDataBuilder } from '../utils/testDataBuilder.js';
 import { Waits } from '../utils/waits.js';
+import fs from 'fs';
 
 /**
  * CustomWorld - Shared context across all steps in a scenario

@@ -74,10 +74,16 @@ After(async function (scenario) {
   const executionTime = this.getElapsedTime();
 
   try {
-    // Take screenshot on failure
+    // Take screenshot on failure and attach to report
     if (scenario.result.status === Status.FAILED) {
       this.logger.error(`[Scenario] FAILED: ${scenario.pickle.name}`);
-      await this.takeScreenshot(`failed-${scenario.pickle.name}`);
+      const screenshotPath = await this.takeScreenshot(`failed-${scenario.pickle.name}`);
+      
+      // Attach screenshot to Cucumber report
+      if (screenshotPath && fs.existsSync(screenshotPath)) {
+        const screenshotBuffer = fs.readFileSync(screenshotPath);
+        this.attach(screenshotBuffer, 'image/png');
+      }
     }
 
     // Log scenario result
