@@ -1,0 +1,23 @@
+{
+  "auth": {
+    "loginPage": {
+      "usernameInput": "input[name='username']",
+      "passwordInput": "input[name='password']",
+      "loginButton": "button[type='submit']",
+      "errorMessage": "[data-testid='error-message']",
+      "forgotPasswordLink": "a[href*='forgot']"
+    },
+    "dashboardPage": {
+      "welcomeMessage": "[data-testid='welcome']",
+      "profileButton": "[data-testid='profile']",
+      "logoutButton": "[data-testid='logout']",
+      "userMenu": "[data-testid='user-menu']"
+    }
+  },
+  "common": {
+    "spinner": ".spinner",
+    "loadingIndicator": "[data-testid='loading']",
+    "errorAlert": "[role='alert']",
+    "successAlert": "[data-testid='success']"
+  }
+}
